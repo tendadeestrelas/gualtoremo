@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Gualton Remo, artista visual e pintor contemporâneo de Porto de Galinhas. Explore obras, vídeos e exposições internacionais.">
+    <meta name="keywords" content="Gualton Remo, artista visual, pintor contemporâneo, arte brasileira, Porto de Galinhas, exposições internacionais">
+    <meta name="author" content="Gualton Remo">
+    <title>Gualton Remo - Artista Visual | Pintor Contemporâneo</title>
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"> <!-- Adicione um favicon.ico na pasta images -->
+    <style>
+        /* O CSS permanece o mesmo que o código anterior. Não alterei nada aqui. */
+    </style>
+</head>
+
+<body>
+    <!-- O cabeçalho e outras seções permanecem iguais. Não alterei nada aqui. -->
+
+    <section id="midia">
+        <div class="container">
+            <h2>Galeria de Mídia</h2>
+
+            <h3>Vídeos</h3>
+            <div class="media-container">
+                <!-- Vídeo 1: Série Sertanejos -->
+                <div class="media-item">
+                    <video controls poster="./images/poster-sertanejos.jpg"> <!-- Adicione uma imagem de poster -->
+                        <source src="./videos/serie-sertanejos.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                    <div class="media-caption">
+                        <strong>Série Sertanejos</strong>
+                    </div>
+                </div>
+
+                <!-- Vídeo 2: Série Indígenas -->
+                <div class="media-item">
+                    <video controls poster="./images/poster-indigenas.jpg"> <!-- Adicione uma imagem de poster -->
+                        <source src="./videos/serie-indigenas.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                    <div class="media-caption">
+                        <strong>Série Indígenas</strong>
+                    </div>
+                </div>
+
+                <!-- Vídeo 3: Série Jangadeiros -->
+                <div class="media-item">
+                    <video controls poster="./images/poster-jangadeiros.jpg"> <!-- Adicione uma imagem de poster -->
+                        <source src="./videos/serie-jangadeiros.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                    </video>
+                    <div class="media-caption">
+                        <strong>Série Jangadeiros</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeria de Imagens permanece igual. Não alterei nada aqui. -->
+        </div>
+    </section>
+
+    <!-- O restante do código permanece o mesmo. Não alterei nada aqui. -->
+
+    <script>
+        // Script para melhorar a experiência do usuário
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function () {
+                const imgName = this.querySelector('span').textContent;
+                alert(`Visualizando imagem: ${imgName}\n\nEm um site real, isso abriria um lightbox ou modal com a imagem em tamanho maior.`);
+            });
+        });
+
+        // Lazy loading adicional para vídeos (opcional)
+        const videos = document.querySelectorAll('video');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    video.src = video.querySelector('source').src; // Carrega apenas quando visível
+                    observer.unobserve(video);
+                }
+            });
+        });
+        videos.forEach(video => observer.observe(video));
+    </script>
+</body>
+
+</html>
